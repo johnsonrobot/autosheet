@@ -7,16 +7,22 @@ config.read("config.ini")
 
 url = config.get("url", "path")
 user = config.get("user", "user")
-pwd = config.get("user", "pwd")
+x = config.get("user", "x")
 id = config.get("user", "id")
 
 user_ele = config.get("user_element", "user")
 user_next = config.get("user_element", "next")
 
-pwd_ele = config.get("pwd_element", "pwd")
-pwd_next = config.get("pwd_element", "next")
+y_ele = config.get("y_element", "y")
+y_next = config.get("y_element", "next")
 
 id_ele = config.get("sheet_element", "user_id")
+mon_ele = config.get("sheet_element", "month")
+day_ele = config.get("sheet_element", "day")
+radio1_ele = config.get("sheet_element", "radio1")
+radio2_ele = config.get("sheet_element", "radio2")
+next1_ele = config.get("sheet_element", "next1")
+next2_ele = config.get("sheet_element", "next2")
 
 today = date.today()
 
@@ -32,22 +38,16 @@ google.find_element_by_xpath(user_next).click()
 
 google.implicitly_wait(5)
 
-google.find_element_by_name(pwd_ele).send_keys(pwd)
-google.find_element_by_xpath(pwd_next).click()
+google.find_element_by_name(y_ele).send_keys(x)
+google.find_element_by_xpath(y_next).click()
 
 google.implicitly_wait(50)
-#id
+
 google.find_element_by_class_name(id_ele).send_keys(id)  
-#month
-google.find_element_by_xpath("//form[@id='mG61Hd']/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div/div/div/div[2]/div/div/div/input").send_keys(today.month)
-#day
-google.find_element_by_xpath("//form[@id='mG61Hd']/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div/div[3]/div/div[2]/div/div/div/input").send_keys(today.day)
-#radiobutton
-google.find_element_by_xpath("//div[@id='i13']/div[3]/div").click()
-#next
-google.find_element_by_xpath("//form[@id='mG61Hd']/div[2]/div/div[3]/div/div/div/span/span").click()
-#radiobutton
-google.find_element_by_xpath("//div[@id='i5']/div[3]/div").click()
-#next
-google.find_element_by_xpath("//form[@id='mG61Hd']/div[2]/div/div[3]/div/div/div[2]/span/span").click()
+google.find_element_by_xpath(mon_ele).send_keys(today.month)
+google.find_element_by_xpath(day_ele).send_keys(today.day)
+google.find_element_by_xpath(radio1_ele).click()
+google.find_element_by_xpath(next1_ele).click()
+google.find_element_by_xpath(radio2_ele).click()
+google.find_element_by_xpath(next2_ele).click()
 # submit
