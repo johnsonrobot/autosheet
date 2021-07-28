@@ -1,5 +1,6 @@
 from selenium import webdriver
 from datetime import date
+from time import sleep
 import configparser
 
 config = configparser.ConfigParser()
@@ -42,3 +43,5 @@ google.find_element_by_xpath(config_ele[12]).click()
 google.find_element_by_xpath(config_ele[13]).click()
 google.find_element_by_xpath(config_ele[14]).click()
 google.find_element_by_xpath(config_ele[15]).click()
+sleep(3)
+google.close()
