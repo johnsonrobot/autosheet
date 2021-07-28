@@ -38,10 +38,8 @@ google.implicitly_wait(50)
 google.find_element_by_class_name(config_ele[8]).send_keys(config_ele[3])  
 google.find_element_by_xpath(config_ele[9]).send_keys(today.month)
 google.find_element_by_xpath(config_ele[10]).send_keys(today.day)
-google.find_element_by_xpath(config_ele[11]).click()
-google.find_element_by_xpath(config_ele[12]).click()
-google.find_element_by_xpath(config_ele[13]).click()
-google.find_element_by_xpath(config_ele[14]).click()
-google.find_element_by_xpath(config_ele[15]).click()
+for i in range(11,16):
+    google.find_element_by_xpath(config_ele[i]).click()
+
 sleep(3)
 google.close()
